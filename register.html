@@ -1,34 +1,91 @@
 <html>
-    <head>
-        <title>Registration Page</title>
-        <link rel="stylesheet" href="styles/login.css">
-    </head>
+  <head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="styles/login.css" />
+    <script>
+      function validateSignup() {
+        console.log("CLICKED SIGN-UP");
+
+        let firstName = document.getElementById("firstName").value;
+        let lastName = document.getElementById("lastName").value;
+        let password = document.getElementById("password").value;
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let errorMessage = document.getElementById("errorMessage");
+
+        errorMessage.innerHTML = "";
+
+        if (!firstName || !lastName || !email || !username || !password) {
+          errorMessage.innerHTML = "Please fill all the fields to continue";
+          return;
+        }
+
+        simulateSignup();
+      }
+
+      function simulateSignup() {
+        alert("Signedup successfully.. Redirecting to login page!");
+        window.location.href = "login.html";
+      }
+
+      function handlePasswordChange() {
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        //Check for password matches!
+        if (password !== confirmPassword) {
+          errorMessage.innerHTML = "Passwords don't match";
+        } else {
+          errorMessage.innerHTML = "";
+        }
+      }
+    </script>
+  </head>
 </html>
 <body>
-    <form action="signupForm">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName" required>
-    
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" id="lastName" required>
-    
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-   
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
-   
-        <label for="password">password</label>
-        <input type="password" name="password" id="password" required>
-    
-        <label for="confirmPassword">Re-Enter Password</label>
-        <input type="confirmPassword" name="confirmPassword" id="confirmPassword" required>
-        
-        <button onclick="validateSignup()">Sign Up</button>
-        <p class="error-message" id="errorMessage"></p>
-        <p class="login-link">
-          Already have an account? <a href="login.html">Login Now!</a>
-        </p>
-    </form>
+  <form action="signupForm">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      name="firstName"
+      id="firstName"
+      minlength="4"
+      maxlength="8"
+      required
+    />
 
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      name="lastName"
+      id="lastName"
+      minlength="2"
+      maxlength="6"
+      required
+    />
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required />
+
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required />
+
+    <label for="password">password</label>
+    <input type="password" name="password" id="password" required />
+
+    <label for="confirmPassword">Re-Enter Password</label>
+    <input
+      type="password"
+      name="confirmPassword"
+      id="confirmPassword"
+      onkeydown="handlePasswordChange()"
+      required
+    />
+
+    <button onclick="validateSignup()">Sign Up</button>
+    <p class="error-message" id="errorMessage"></p>
+    <p class="login-link">
+      Already have an account? <a href="login.html">Login Now!</a>
+    </p>
+  </form>
 </body>

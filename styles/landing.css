@@ -59,7 +59,7 @@ footer {
   margin-right: 10px;
 }
 
-#worldnews {
+#worldnews, #indianews, #regionalnews {
   margin: 10px;
   overflow-x: auto;
   white-space: nowrap;
@@ -76,12 +76,27 @@ footer {
   display: inline-block;
 }
 
-.news img{
+.news img {
   border-radius: 10px;
   width: 300px;
   height: 200px;
 }
 
-.overlay{
-  
+.overlay {
+  position: absolute;
+  bottom: 0%;
+  background-color: rgb(0, 0, 0, 0.3);
+  width: 280px;
+  border-radius: 5px;
+  max-width: 280px;
+  transition: 0.5s ease;
+  opacity: 0;
+  overflow: hidden;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.news:hover .overlay {
+  opacity: 1;
 }
