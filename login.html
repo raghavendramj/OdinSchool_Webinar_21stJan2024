@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Login Page!</title>
+    <link rel="stylesheet" href="styles/login.css" />
+    <script>
+      function validateLogin() {
+        console.log("Clicked on Login!");
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let errMsgVal = document.getElementById("errorMessage");
+
+        errMsgVal.innerHTML = "";
+
+        if (!username || !password) {
+          errMsgVal.innerHTML = "Please enter both username and password!";
+        }
+        simulateLogin();
+      }
+
+      function simulateLogin() {
+        alert("Logged in successfully! Redirecting to Home Page!");
+        window.location.href = "landing.html";
+      }
+    </script>
+  </head>
+  <body>
+    <form id="loginForm">
+      <label for="username">Username </label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password </label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="button" onclick="validateLogin()">Login</button>
+
+      <p class="error-message" id="errorMessage"></p>
+      <p class="signup-link">
+        Don't have an account? <a href="register.html">Register Now!</a>
+      </p>
+    </form>
+  </body>
+</html>

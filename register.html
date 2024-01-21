@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="styles/login.css">
+    </head>
+</html>
+<body>
+    <form action="signupForm">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" required>
+    
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" required>
+    
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+   
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+   
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" required>
+    
+        <label for="confirmPassword">Re-Enter Password</label>
+        <input type="confirmPassword" name="confirmPassword" id="confirmPassword" required>
+        
+        <button onclick="validateSignup()">Sign Up</button>
+        <p class="error-message" id="errorMessage"></p>
+        <p class="login-link">
+          Already have an account? <a href="login.html">Login Now!</a>
+        </p>
+    </form>
+
+</body>
